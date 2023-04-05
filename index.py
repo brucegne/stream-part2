@@ -1,4 +1,3 @@
-
 import streamlit as st
 import gspread
 import pandas as pd
@@ -8,6 +7,10 @@ import requests, json
 st.set_page_config(page_title="Nifty Stuff",
                     page_icon=":bar_chart:",
                     layout="wide")
+
+"""
+:camera:  :boat:  :wastebasket:
+"""
 
 st.title("Welcome to StreamLit")
 
