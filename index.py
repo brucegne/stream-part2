@@ -9,7 +9,7 @@ st.set_page_config(page_title="Nifty Stuff",
                     layout="wide")
 
 """
-:camera:  :boat:  :wastebasket:
+# :camera:  :boat:  :wastebasket:
 """
 
 st.title("Welcome to StreamLit")
