@@ -13,6 +13,7 @@ st.set_page_config(page_title="Nifty Stuff",
 """
 
 st.title("Welcome to StreamLit")
+st.subheader("This is some firebase data")
 
 work_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users.json'
 
