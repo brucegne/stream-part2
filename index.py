@@ -8,20 +8,27 @@ st.set_page_config(page_title="Nifty Stuff",
                     page_icon=":bar_chart:",
                     layout="wide")
 
-"""
-# :camera:  :boat:  :wastebasket:
-"""
 
-st.title("Welcome to StreamLit")
-st.header("This is just going to be some demo experimenting stuff")
-st.subheader("This is some firebase data")
+page_nav = st.sidebar.radio("Select Page",["Firebase","About Us"])
+if page_nav == "Firebase":
 
-work_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users.json'
+    """
+    # :camera:  :boat:  :wastebasket:
+    """
 
-# requests.post(work_url, json={'name':'Gordon, Dana Marie', 'age': 8})
+    st.title("Welcome to StreamLit")
 
-results = requests.get(work_url)
-res = results.json()
-for rec in res:
-    st.write(res[rec]['name'],res[rec]['comments'])
-    
+    work_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users.json'
+
+    # requests.post(work_url, json={'name':'Gordon, Dana Marie', 'age': 8})
+
+    results = requests.get(work_url)
+    res = results.json()
+    for rec in res:
+        st.write(res[rec]['name'],res[rec]['comments'])
+
+if page_nav == "About Us":
+    st.title("Everything About What we do")
+
+    st.write("Ain't this stuff neat")
+
