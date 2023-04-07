@@ -23,7 +23,7 @@ if page_nav == "Firebase":
 
     # requests.post(work_url, json={'name':'Gordon, Dana Marie', 'age': 8})
 
-    rlist=[]
+    rlist=['Please Select']
     klist={}
     results = requests.get(work_url)
     res = results.json()
@@ -32,11 +32,11 @@ if page_nav == "Firebase":
         klist[res[rec]['name']]=rec
         st.write(res[rec]['name'],res[rec]['comments'])
     uname = st.sidebar.selectbox("Choose User", rlist)
-#    st.sidebar.write(klist)
-    st.sidebar.write(uname)
-    st.sidebar.write(klist[uname])
-    user_rec = requests.get(user_url % (klist[uname]))
-    st.sidebar.write(user_rec.json()['comments'])
+    if "Please"  not in uname:
+        st.sidebar.write(uname)
+        st.sidebar.write(klist[uname])
+        user_rec = requests.get(user_url % (klist[uname]))
+        st.sidebar.write(user_rec.json()['comments'])
                             
 if page_nav == "About Us":
     st.title("Everything About What we do")
