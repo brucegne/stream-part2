@@ -43,6 +43,12 @@ if page_nav == "Firebase":
             user_comments = st.sidebar.text_input('Comments', value=ucomments)
             usr_submit = st.form_submit_button(label="Save Changes")
             if usr_submit:
+              post_url = user_url % klist[uname]
+              post_data = {}
+              post_data['name'] = user_name
+              post_data['email'] = user_email
+              post_data['comments'] = user_comments
+              res = requests.update(post_url,json=post_data)
               st.sidebar.write("Form was processed")
         
 if page_nav == "About Us":
