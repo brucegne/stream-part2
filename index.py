@@ -42,6 +42,8 @@ if page_nav == "Firebase":
             user_email = st.sidebar.text_input('User Email', value=uemail)
             user_comments = st.sidebar.text_input('Comments', value=ucomments)
             usr_submit = st.form_submit_button(label="Save Changes")
+            st.sidebar.write(" ")
+            st.sidebar.write(" ")
             if usr_submit:
               post_url = user_url % klist[uname]
               post_data = {}
