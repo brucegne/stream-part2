@@ -36,13 +36,14 @@ if page_nav == "Firebase":
       user_rec = requests.get(user_url % (klist[uname]))
       uemail = user_rec.json()['email']
       ucomments = user_rec.json()['comments']
-      with st.sidebar.form(key='edit_form'):
-        user_name = st.sidebar.text_input('User Name', value=uname)
-        user_email = st.sidebar.text_input('User Email', value=uemail)
-        user_comments = st.sidebar.text_input('Comments', value=ucomments)
-        usr_submit = st.sidebar.form_submit_button("Save Changes")
-        if usr_submit:
-          st.sidebar.write("Form was processed")
+      with st.form(key='edit_form'):
+        with st.sidebar:
+            user_name = st.sidebar.text_input('User Name', value=uname)
+            user_email = st.sidebar.text_input('User Email', value=uemail)
+            user_comments = st.sidebar.text_input('Comments', value=ucomments)
+            usr_submit = st.sidebar.form_submit_button("Save Changes")
+            if usr_submit:
+              st.sidebar.write("Form was processed")
         
 if page_nav == "About Us":
     st.title("Everything About What we do")
