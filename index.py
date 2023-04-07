@@ -19,6 +19,7 @@ if page_nav == "Firebase":
     st.title("Welcome to StreamLit")
 
     work_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users.json'
+    user_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users%s.json'
 
     # requests.post(work_url, json={'name':'Gordon, Dana Marie', 'age': 8})
 
@@ -34,7 +35,9 @@ if page_nav == "Firebase":
 #    st.sidebar.write(klist)
     st.sidebar.write(uname)
     st.sidebar.write(klist[uname])
-    
+    user_rec = requests.get(user_url % (klist[uname])
+    st.sidebar.write(user_rec)
+                            
 if page_nav == "About Us":
     st.title("Everything About What we do")
 
