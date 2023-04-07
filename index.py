@@ -23,10 +23,12 @@ if page_nav == "Firebase":
     # requests.post(work_url, json={'name':'Gordon, Dana Marie', 'age': 8})
 
     rlist=[]
+    klist={}
     results = requests.get(work_url)
     res = results.json()
     for rec in res:
         rlist.append(res[rec]['name'])
+        klist[res[rec]['name']]=rec
         st.write(res[rec]['name'],res[rec]['comments'])
     st.sidebar.selectbox("Choose User", rlist)
     
