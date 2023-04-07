@@ -36,7 +36,7 @@ if page_nav == "Firebase":
     st.sidebar.write(uname)
     st.sidebar.write(klist[uname])
     user_rec = requests.get(user_url % (klist[uname]))
-    st.sidebar.write(user_rec.json())
+    st.sidebar.write(user_rec.text)
                             
 if page_nav == "About Us":
     st.title("Everything About What we do")
