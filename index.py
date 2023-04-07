@@ -35,7 +35,7 @@ if page_nav == "Firebase":
 #    st.sidebar.write(klist)
     st.sidebar.write(uname)
     st.sidebar.write(klist[uname])
-    user_rec = requests.get(user_url % (klist[uname])
+    user_rec = requests.get(user_url % (klist[uname]))
     st.sidebar.write(user_rec)
                             
 if page_nav == "About Us":
