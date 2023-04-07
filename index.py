@@ -37,7 +37,7 @@ if page_nav == "Firebase":
       uemail = user_rec.json()['email']
       ucomments = user_rec.json()['comments']
       with st.sidebar:
-            user_form =  form.form(key='edit_form',clear_on_submit=True):
+            form =  form.form(key='edit_form',clear_on_submit=True)
             user_name = form.sidebar.text_input('User Name', value=uname)
             user_email = form.sidebar.text_input('User Email', value=uemail)
             user_comments = form.sidebar.text_input('Comments', value=ucomments)
