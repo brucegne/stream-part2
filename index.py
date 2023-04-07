@@ -40,11 +40,8 @@ if page_nav == "Firebase":
         user_name = st.sidebar.text_input('User Name', value=uname)
         user_email = st.sidebar.text_input('User Email', value=uemail)
         user_comments = st.sidebar.text_input('Comments', value=ucomments)
-        st.sidebar.write(uname)
-        st.sidebar.write(klist[uname])
-        user_rec = requests.get(user_url % (klist[uname]))
-        st.sidebar.write(user_rec.json()['comments'])
-                            
+        usr_submit = st.form_submit_button("Save Changes")
+        
 if page_nav == "About Us":
     st.title("Everything About What we do")
 
