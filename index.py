@@ -22,11 +22,14 @@ if page_nav == "Firebase":
 
     # requests.post(work_url, json={'name':'Gordon, Dana Marie', 'age': 8})
 
+    rlist=[]
     results = requests.get(work_url)
     res = results.json()
     for rec in res:
+        rlist.append(res[rec]['name'])
         st.write(res[rec]['name'],res[rec]['comments'])
-
+    st.sidebar.selectbox("Choose User", rlist)
+    
 if page_nav == "About Us":
     st.title("Everything About What we do")
 
