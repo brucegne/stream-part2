@@ -37,9 +37,9 @@ if page_nav == "Firebase":
       with st.form(key='edit_form'):
         uemail = user_rec.json()['email']
         ucomments = user_rec.json()['comments']
-        user_name = st.sidebar.text_input(value=uname)
-        user_email = st.sidebar.text_input(value=uemail)
-        user_comments = st.sidebar.text_input(value=ucomments)
+        user_name = st.sidebar.text_input('User Name', value=uname)
+        user_email = st.sidebar.text_input('User Email', value=uemail)
+        user_comments = st.sidebar.text_input('Comments', value=ucomments)
         st.sidebar.write(uname)
         st.sidebar.write(klist[uname])
         user_rec = requests.get(user_url % (klist[uname]))
