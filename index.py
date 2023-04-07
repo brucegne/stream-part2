@@ -19,7 +19,7 @@ if page_nav == "Firebase":
     st.title("Welcome to StreamLit")
 
     work_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users.json'
-    user_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users%s.json'
+    user_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users/%s.json'
 
     # requests.post(work_url, json={'name':'Gordon, Dana Marie', 'age': 8})
 
