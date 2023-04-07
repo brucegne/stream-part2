@@ -48,7 +48,7 @@ if page_nav == "Firebase":
               post_data['name'] = user_name
               post_data['email'] = user_email
               post_data['comments'] = user_comments
-              res = requests.update(post_url,json=post_data)
+              res = requests.post(post_url,json=post_data)
               st.sidebar.write("Form was processed")
         
 if page_nav == "About Us":
