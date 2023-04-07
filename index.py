@@ -52,7 +52,7 @@ if page_nav == "Firebase":
               post_data['comments'] = user_comments
               res = requests.patch(post_url,json=post_data)
               st.sidebar.write("Form was processed")
-              st.experimental_rerun()
+              st.stop()
 
               
 if page_nav == "About Us":
