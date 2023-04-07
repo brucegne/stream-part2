@@ -33,6 +33,7 @@ if page_nav == "Firebase":
     uname = st.sidebar.selectbox("Choose User", rlist)
     st.sidebar.write(klist)
     st.sidebar.write(uname)
+    st.sidebar.write(klist[name])
     
 if page_nav == "About Us":
     st.title("Everything About What we do")
