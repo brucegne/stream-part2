@@ -30,8 +30,9 @@ if page_nav == "Firebase":
         rlist.append(res[rec]['name'])
         klist[res[rec]['name']]=rec
         st.write(res[rec]['name'],res[rec]['comments'])
-    st.sidebar.selectbox("Choose User", rlist)
+    uname = st.sidebar.selectbox("Choose User", rlist)
     st.sidebar.write(klist)
+    st.sidebar.write(uname)
     
 if page_nav == "About Us":
     st.title("Everything About What we do")
