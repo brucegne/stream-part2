@@ -31,7 +31,7 @@ if page_nav == "Firebase":
         klist[res[rec]['name']]=rec
         st.write(res[rec]['name'],res[rec]['comments'])
     uname = st.sidebar.selectbox("Choose User", rlist)
-    st.sidebar.write(klist)
+#    st.sidebar.write(klist)
     st.sidebar.write(uname)
     st.sidebar.write(klist[uname])
     
