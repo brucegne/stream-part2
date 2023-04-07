@@ -41,9 +41,9 @@ if page_nav == "Firebase":
             user_name = st.sidebar.text_input('User Name', value=uname)
             user_email = st.sidebar.text_input('User Email', value=uemail)
             user_comments = st.sidebar.text_input('Comments', value=ucomments)
-            usr_submit = st.sidebar.form_submit_button("Save Changes")
+            usr_submit = st.form_submit_button("Save Changes")
             if usr_submit:
-              st.sidebar.write("Form was processed")
+              st.sidebar.write(label="Form was processed")
         
 if page_nav == "About Us":
     st.title("Everything About What we do")
