@@ -12,7 +12,7 @@ st.set_page_config(page_title="Nifty Stuff",
 page_nav = st.sidebar.radio("Select Page",["Firebase","About Us", "Images"])
 if page_nav == "Firebase":
   
-    if 'formed' not in st.session_state:
+    if not st.session_state['formed']:
         st.session_state['formed'] = 'Yes'
 
     """
