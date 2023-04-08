@@ -13,7 +13,7 @@ page_nav = st.sidebar.radio("Select Page",["Firebase","About Us", "Images"])
 if page_nav == "Firebase":
   
     if 'formed' not in st.session_state:
-        st.session_state['formed'] = False
+        st.session_state['formed'] = 'Yes'
 
     """
     # :camera:  :boat:  :wastebasket:
@@ -36,12 +36,12 @@ if page_nav == "Firebase":
         st.write(res[rec]['name'],res[rec]['comments'])
     uname = st.sidebar.selectbox("Choose User", rlist)
     if "Please"  not in uname:
-      st.session_state = True
+      st.session_state['formed'] == 'Yes'
       user_rec = requests.get(user_url % (klist[uname]))
       uemail = user_rec.json()['email']
       ucomments = user_rec.json()['comments']
       with st.sidebar:
-        if st.session_state == True:
+        if st.session_state['formed'] == 'yes':
             form =  st.form(key='edit_form',clear_on_submit=True)
             user_name = form.text_input('User Name', value=uname)
             user_email = form.text_input('User Email', value=uemail)
@@ -56,7 +56,7 @@ if page_nav == "Firebase":
               post_data['email'] = user_email
               post_data['comments'] = user_comments
               res = requests.patch(post_url,json=post_data)
-              st.session_state = False
+              st.session_state['formed'] = 'no'
               
 if page_nav == "About Us":
 	st.title("Everything About What we do")
