@@ -38,9 +38,9 @@ if page_nav == "Firebase":
       ucomments = user_rec.json()['comments']
       with st.sidebar:
             form =  st.form(key='edit_form',clear_on_submit=True)
-            user_name = st.sidebar.form.text_input('User Name', value=uname)
-            user_email = form.sidebar.text_input('User Email', value=uemail)
-            user_comments = form.sidebar.text_input('Comments', value=ucomments)
+            user_name = form.text_input('User Name', value=uname)
+            user_email = form.text_input('User Email', value=uemail)
+            user_comments = form.text_input('Comments', value=ucomments)
             usr_submit = form.form_submit_button(label="Save Changes")
             st.sidebar.write(" ")
             st.sidebar.write(" ")
