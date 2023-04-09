@@ -11,10 +11,6 @@ st.set_page_config(page_title="Nifty Stuff",
 
 page_nav = st.sidebar.radio("Select Page",["Firebase","About Us", "Images"])
 if page_nav == "Firebase":
-  
-    if st.session_state['formed'] != 'yes' and st.session_state['formed'] != 'no':
-        st.session_state['formed'] = 'no'
-
     """
     # :camera:  :boat:  :wastebasket:
     """
@@ -34,29 +30,27 @@ if page_nav == "Firebase":
         rlist.append(res[rec]['name'])
         klist[res[rec]['name']]=rec
         st.write(res[rec]['name'],res[rec]['comments'])
-    uname = st.sidebar.selectbox("Choose User", rlist)
-    if "Please"  not in uname:
-      st.session_state['formed'] == 'Yes'
-      user_rec = requests.get(user_url % (klist[uname]))
-      uemail = user_rec.json()['email']
-      ucomments = user_rec.json()['comments']
       with st.sidebar:
         if st.session_state['formed'] == 'yes':
-            form =  st.form(key='edit_form',clear_on_submit=True)
-            user_name = form.text_input('User Name', value=uname)
-            user_email = form.text_input('User Email', value=uemail)
-            user_comments = form.text_input('Comments', value=ucomments)
-            usr_submit = form.form_submit_button(label="Save Changes")
-            st.sidebar.write(" ")
-            st.sidebar.write(" ")
-            if usr_submit:
-              post_url = user_url % klist[uname]
-              post_data = {}
-              post_data['name'] = user_name
-              post_data['email'] = user_email
-              post_data['comments'] = user_comments
-              res = requests.patch(post_url,json=post_data)
-              st.session_state['formed'] = 'no'
+             form =  st.form(key='edit_form',clear_on_submit=True)
+	        uname = st.sidebar.selectbox("Choose User", rlist)
+	        if "Please"  not in uname:
+		    user_rec = requests.get(user_url % (klist[uname]))
+		    uemail = user_rec.json()['email']
+		    ucomments = user_rec.json()['comments']
+		    user_name = form.text_input('User Name', value=uname)
+		    user_email = form.text_input('User Email', value=uemail)
+		    user_comments = form.text_input('Comments', value=ucomments)
+		    usr_submit = form.form_submit_button(label="Save Changes")
+		    st.sidebar.write(" ")
+		    st.sidebar.write(" ")
+		    if usr_submit:
+		      post_url = user_url % klist[uname]
+		      post_data = {}
+		      post_data['name'] = user_name
+		      post_data['email'] = user_email
+		      post_data['comments'] = user_comments
+		      res = requests.patch(post_url,json=post_data)
               
 if page_nav == "About Us":
 	st.title("Everything About What we do")
