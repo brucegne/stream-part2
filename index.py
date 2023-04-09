@@ -16,21 +16,21 @@ if page_nav == "Firebase":
     # :camera:  :boat:  :wastebasket:
     """
 
-    st.title("Welcome to StreamLit")
+	st.title("Welcome to StreamLit")
 
-    work_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users.json'
-    user_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users/%s.json'
+	work_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users.json'
+	user_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users/%s.json'
 
-    # requests.post(work_url, json={'name':'Gordon, Dana Marie', 'age': 8})
+	# requests.post(work_url, json={'name':'Gordon, Dana Marie', 'age': 8})
 
-    rlist=['Please Select']
-    klist={}
-    results = requests.get(work_url)
-    res = results.json()
-    for rec in res:
-	rlist.append(res[rec]['name'])
-	klist[res[rec]['name']]=rec
-	st.write(res[rec]['name'],res[rec]['comments'])
+	rlist=['Please Select']
+	klist={}
+	results = requests.get(work_url)
+	res = results.json()
+	for rec in res:
+		rlist.append(res[rec]['name'])
+		klist[res[rec]['name']]=rec
+		st.write(res[rec]['name'],res[rec]['comments'])
 	with st.sidebar:
 		form =  st.form(key='edit_form',clear_on_submit=True)
 		uname = st.selectbox("Choose User", rlist)
