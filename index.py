@@ -12,16 +12,13 @@ st.set_page_config(page_title="Nifty Stuff",
 page_nav = st.sidebar.radio("Select Page",["Firebase","About Us", "Images"])
 
 if page_nav == "Firebase":
-    """
-    # :camera:  :boat:  :wastebasket:
-    """
 
 	st.title("Welcome to StreamLit")
 
 	work_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users.json'
 	user_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users/%s.json'
 
-	# requests.post(work_url, json={'name':'Gordon, Dana Marie', 'age': 8})
+# requests.post(work_url, json={'name':'Gordon, Dana Marie', 'age': 8})
 
 	rlist=['Please Select']
 	klist={}
