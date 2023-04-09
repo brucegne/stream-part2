@@ -10,6 +10,7 @@ st.set_page_config(page_title="Nifty Stuff",
 
 
 page_nav = st.sidebar.radio("Select Page",["Firebase","About Us", "Images"])
+
 if page_nav == "Firebase":
     """
     # :camera:  :boat:  :wastebasket:
