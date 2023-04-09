@@ -52,6 +52,7 @@ if page_nav == "Firebase":
 		      post_data['comments'] = user_comments
 		      res = requests.patch(post_url,json=post_data)
               
+	
 if page_nav == "About Us":
 	st.title("Everything About What we do")
 
