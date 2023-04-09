@@ -32,9 +32,9 @@ if page_nav == "Firebase":
         klist[res[rec]['name']]=rec
         st.write(res[rec]['name'],res[rec]['comments'])
     with st.sidebar:
-                form =  st.form(key='edit_form',clear_on_submit=True)
-	        uname = st.sidebar.selectbox("Choose User", rlist)
-	        if "Please"  not in uname:
+		form =  st.form(key='edit_form',clear_on_submit=True)
+		uname = st.selectbox("Choose User", rlist)
+		if "Please"  not in uname:
 		    user_rec = requests.get(user_url % (klist[uname]))
 		    uemail = user_rec.json()['email']
 		    ucomments = user_rec.json()['comments']
