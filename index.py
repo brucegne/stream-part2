@@ -11,7 +11,7 @@ st.set_page_config(page_title="Nifty Stuff",
 
 page_nav = st.sidebar.radio("Select Page",["Add User","Firebase","About Us", "Images"])
 
-if page_nav = "Add User":
+if page_nav == "Add User":
 
 	work_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users.json'
 	user_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users/%s.json'
