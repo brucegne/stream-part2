@@ -51,7 +51,7 @@ if page_nav == "Firebase":
               
 	
 if page_nav == "About Us":
-	st.title("Everything About What we do")
+	st.title("Everything About who we are and What we do")
 
 	st.write("Ain't this stuff neat")
 
