@@ -48,7 +48,7 @@ if page_nav == "Firebase":
 	for rec in res:
 		rlist.append(res[rec]['name'])
 		klist[res[rec]['name']]=rec
-		st.write(res[rec]['name'],res[rec]['comments'])
+		st.write(rec,res[rec]['name'],res[rec]['comments'])
 	with st.sidebar:
 		form =  st.form(key='edit_form',clear_on_submit=True)
 		uname = st.selectbox("Choose User", rlist)
