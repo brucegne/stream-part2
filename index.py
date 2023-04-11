@@ -16,7 +16,8 @@ if page_nav == "Add User":
 	work_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users.json'
 	user_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users/%s.json'
 
-	st.header("Firebase Contact Entry")
+	st.header("Firebase Contact Entry Form")
+	st.caption("Check under 'Firebase' to see all entries")
 	form =  st.form(key='editform1234',clear_on_submit=True)
 	user_name = form.text_input('User Name', value='')
 	user_email = form.text_input('User Email', value='')
