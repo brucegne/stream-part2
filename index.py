@@ -3,6 +3,7 @@ import gspread
 import pandas as pd
 import numpy as np
 import requests, json
+from time import sleep
 
 st.set_page_config(page_title="Nifty Stuff",
                     page_icon=":bar_chart:",
@@ -57,14 +58,16 @@ if page_nav == "Edit User":
 		usr_submit = form.form_submit_button(label="Save Changes")
 		if usr_submit:
 		    post_url = user_url % (rec_key)
-		    st.sidebar.write(post_url)
+		    print(post_url)
+		    sleep(5)
 		    post_data = {}
 		    post_data['name'] = user_name
 		    post_data['email'] = user_email
 		    post_data['comments'] = user_comments
 		    res = requests.patch(post_url,json=post_data)
 		    print(res.text())
-	
+		    sleep(5)
+		
 if page_nav == "Firebase":
 
 	st.title("Welcome to StreamLit")
