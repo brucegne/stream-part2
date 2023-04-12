@@ -40,17 +40,22 @@ if page_nav == "Edit User":
 
 	st.header("Firebase Contact Entry Form")
 	st.caption("Check under 'Firebase' to see all entries")
+	
 	srch_form = st.form(key='srch_form', clear_on_submit=True)
 	rec_key = srch_form.text_input('Enter Key', value='')
 	srch_submit = srch_form.form_submit_button(label="Search")
 	if srch_submit:
+		user_rec = requests.get(user_url % (rec_key))
 		form =  st.form(key='editform1234',clear_on_submit=True)
-		user_name = form.text_input('User Name', value='')
-		user_email = form.text_input('User Email', value='')
-		user_comments = form.text_area('Comments', value='')
+		uname = user_rec.json()['name']
+		uemail = user_rec.json()['email']
+		ucomments = user_rec.json()['comments']
+		user_name = form.text_input('User Name', value=uname)
+		user_email = form.text_input('User Email', value=uemail)
+		user_comments = form.text_area('Comments', value=ucomments)
 		usr_submit = form.form_submit_button(label="Save Changes")
 		if usr_submit:
-		    post_url = user_url % rec_key
+		    post_url = user_url % (rec_key)
 		    post_data = {}
 		    post_data['name'] = user_name
 		    post_data['email'] = user_email
