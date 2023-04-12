@@ -18,19 +18,23 @@ if page_nav == "Add User":
 
 	st.header("Firebase Contact Entry Form")
 	st.caption("Check under 'Firebase' to see all entries")
-	form =  st.form(key='editform1234',clear_on_submit=True)
-	user_name = form.text_input('User Name', value='')
-	user_email = form.text_input('User Email', value='')
-	user_comments = form.text_area('Comments', value='')
-	usr_submit = form.form_submit_button(label="Save Changes")
-	if usr_submit:
-	    post_url = work_url
-	    post_data = {}
-	    post_data['name'] = user_name
-	    post_data['email'] = user_email
-	    post_data['comments'] = user_comments
-	    res = requests.post(post_url,json=post_data)
-	    page_nav = "Firebase"
+	srch_form = st.form(key='srch_form', clear_on_submit=True)
+	rec_key = form.text_input('Enter Key', value='')
+	srch_submit = form.form_submit_button(label="Search")
+	if srch_submit:
+		form =  st.form(key='editform1234',clear_on_submit=True)
+		user_name = form.text_input('User Name', value='')
+		user_email = form.text_input('User Email', value='')
+		user_comments = form.text_area('Comments', value='')
+		usr_submit = form.form_submit_button(label="Save Changes")
+		if usr_submit:
+		    post_url = work_url
+		    post_data = {}
+		    post_data['name'] = user_name
+		    post_data['email'] = user_email
+		    post_data['comments'] = user_comments
+		    res = requests.post(post_url,json=post_data)
+		    page_nav = "Firebase"
 	
 if page_nav == "Firebase":
 
