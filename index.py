@@ -46,6 +46,7 @@ if page_nav == "Edit User":
 	srch_submit = srch_form.form_submit_button(label="Search")
 	if srch_submit:
 		user_rec = requests.get(user_url % (rec_key))
+		st.write(user_rec.status)
 		form =  st.form(key='editform1234',clear_on_submit=True)
 		uname = user_rec.json()['name']
 		uemail = user_rec.json()['email']
