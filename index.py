@@ -64,7 +64,7 @@ if page_nav == "Edit User":
 		    post_data['email'] = user_email
 		    post_data['comments'] = user_comments
 		    res = requests.patch(post_url,json=post_data)
-		    st.sidebar.write(res)
+		    st.success(res)
 	
 if page_nav == "Firebase":
 
