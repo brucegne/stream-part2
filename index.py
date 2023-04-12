@@ -47,11 +47,10 @@ if page_nav == "Edit User":
 	srch_submit = srch_form.form_submit_button(label="Search")
 	if srch_submit:
 		user_rec = requests.get(user_url % (rec_key.strip()))		
-		st.write(rec_key, user_rec)
-		form =  st.form(key='editform',clear_on_submit=True)
 		uname = user_rec.json()['name']
 		uemail = user_rec.json()['email']
 		ucomments = user_rec.json()['comments']
+		form =  st.form(key='editform',clear_on_submit=True)
 		user_name = form.text_input('User Name', value=uname)
 		user_email = form.text_input('User Email', value=uemail)
 		user_comments = form.text_area('Comments', value=ucomments)
