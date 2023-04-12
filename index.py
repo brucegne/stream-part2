@@ -58,6 +58,7 @@ if page_nav == "Edit User":
 		usr_submit = form.form_submit_button(label="Save Changes")
 		if usr_submit:
 		    post_url = user_url % (rec_key)
+		    st.write(post_url)
 		    post_data = {}
 		    post_data['name'] = user_name
 		    post_data['email'] = user_email
