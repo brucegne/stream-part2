@@ -47,7 +47,7 @@ if page_nav == "Edit User":
 	srch_submit = srch_form.form_submit_button(label="Search")
 	if srch_submit:
 		user_rec = requests.get(user_url % (rec_key.strip()))		
-		st.warning(rec_key, user_rec)
+		st.write(rec_key, user_rec)
 		form =  st.form(key='editform',clear_on_submit=True)
 		uname = user_rec.json()['name']
 		uemail = user_rec.json()['email']
@@ -58,14 +58,14 @@ if page_nav == "Edit User":
 		usr_submit = form.form_submit_button(label="Save Changes")
 		if usr_submit:
 		    post_url = user_url % (rec_key)
-		    print(post_url)
+		    st.write(post_url)
 		    sleep(5)
 		    post_data = {}
 		    post_data['name'] = user_name
 		    post_data['email'] = user_email
 		    post_data['comments'] = user_comments
 		    res = requests.patch(post_url,json=post_data)
-		    print(res.text())
+		    st.write(res.text())
 		    sleep(5)
 		
 if page_nav == "Firebase":
