@@ -9,9 +9,31 @@ st.set_page_config(page_title="Nifty Stuff",
                     layout="wide")
 
 
-page_nav = st.sidebar.radio("Select Page",["Add User","Firebase","About Us", "Images"])
+page_nav = st.sidebar.radio("Select Page",["Add User","Edit User", "Firebase","About Us", "Images"])
 
 if page_nav == "Add User":
+
+	work_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users.json'
+	user_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users/%s.json'
+
+	st.header("Firebase Contact Entry Form")
+	st.caption("Check under 'Firebase' to see all entries")
+	form =  st.form(key='editform1234',clear_on_submit=True)
+	user_name = form.text_input('User Name', value='')
+	user_email = form.text_input('User Email', value='')
+	user_comments = form.text_area('Comments', value='')
+	usr_submit = form.form_submit_button(label="Save Changes")
+	if usr_submit:
+	    post_url = work_url
+	    post_data = {}
+	    post_data['name'] = user_name
+	    post_data['email'] = user_email
+	    post_data['comments'] = user_comments
+	    res = requests.post(post_url,json=post_data)
+	    page_nav = "Firebase"
+
+	
+if page_nav == "Edit User":
 
 	work_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users.json'
 	user_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users/%s.json'
@@ -28,12 +50,12 @@ if page_nav == "Add User":
 		user_comments = form.text_area('Comments', value='')
 		usr_submit = form.form_submit_button(label="Save Changes")
 		if usr_submit:
-		    post_url = work_url
+		    post_url = user_url % rec_key
 		    post_data = {}
 		    post_data['name'] = user_name
 		    post_data['email'] = user_email
 		    post_data['comments'] = user_comments
-		    res = requests.post(post_url,json=post_data)
+		    res = requests.patch(post_url,json=post_data)
 		    page_nav = "Firebase"
 	
 if page_nav == "Firebase":
