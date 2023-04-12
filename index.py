@@ -42,6 +42,8 @@ if page_nav == "Edit User":
 	st.header("Firebase Contact Entry Form")
 	st.caption("Check under 'Firebase' to see all entries")
 	
+	print("In the function")
+	
 	srch_form = st.form(key='srch_form', clear_on_submit=True)
 	rec_key = srch_form.text_input('Enter Key', value='')
 	srch_submit = srch_form.form_submit_button(label="Search")
