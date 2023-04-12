@@ -58,13 +58,13 @@ if page_nav == "Edit User":
 		usr_submit = form.form_submit_button(label="Save Changes")
 		if usr_submit:
 		    post_url = user_url % (rec_key)
-		    st.write(post_url)
+		    st.sidebar.write(post_url)
 		    post_data = {}
 		    post_data['name'] = user_name
 		    post_data['email'] = user_email
 		    post_data['comments'] = user_comments
 		    res = requests.patch(post_url,json=post_data)
-		    page_nav = "Firebase"
+		    st.sidebar.write(res)
 	
 if page_nav == "Firebase":
 
@@ -83,26 +83,6 @@ if page_nav == "Firebase":
 		rlist.append(res[rec]['name'])
 		klist[res[rec]['name']]=rec
 		st.write(rec,'____',res[rec]['name'],res[rec]['comments'])
-	with st.sidebar:
-		form =  st.form(key='edit_form',clear_on_submit=True)
-		uname = st.selectbox("Choose User", rlist)
-		if "Please"  not in uname:
-		    user_rec = requests.get(user_url % (klist[uname]))
-		    uemail = user_rec.json()['email']
-		    ucomments = user_rec.json()['comments']
-		    user_name = form.text_input('User Name', value=uname)
-		    user_email = form.text_input('User Email', value=uemail)
-		    user_comments = form.text_input('Comments', value=ucomments)
-		    usr_submit = form.form_submit_button(label="Save Changes")
-		    st.sidebar.write(" ")
-		    st.sidebar.write(" ")
-		    if usr_submit:
-		      post_url = user_url % klist[uname]
-		      post_data = {}
-		      post_data['name'] = user_name
-		      post_data['email'] = user_email
-		      post_data['comments'] = user_comments
-		      res = requests.patch(post_url,json=post_data)
               
 	
 if page_nav == "About Us":
