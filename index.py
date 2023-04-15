@@ -14,10 +14,7 @@ page_nav = st.sidebar.radio("Select Page",["Add User","Edit User", "Firebase","A
 
 if page_nav == "Add User":
 
-	work_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users.json'
-	user_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users/%s.json'
-
-	st.header("Firebase Contact Entry Form")
+	st.header("GSpread Contact Entry Form")
 	st.caption("Check under 'Firebase' to see all entries")
 	form =  st.form(key='editform1234',clear_on_submit=True)
 	user_name = form.text_input('User Name', value='')
@@ -30,7 +27,7 @@ if page_nav == "Add User":
 	    post_data['name'] = user_name
 	    post_data['email'] = user_email
 	    post_data['comments'] = user_comments
-	    res = requests.post(post_url,json=post_data)
+#	    res = requests.post(post_url,json=post_data)
 	    page_nav = "Firebase"
 
 	
