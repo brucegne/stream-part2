@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "global-baton-794",
+  "private_key_id": "38b8761e6e28d735e09f2474275c4ae50efafb25",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCoZuV0a8+QPLid\nMKdLBxhn+mnA9Ah6idcaKxznoT6aVFq5mnjKjDEI9yXP7yFTMe3eXBDxTIEYpKnt\nVcAesWpl6tDU767yl9y3AXCYEHGp+osDobe3rXN6opvMvw80snqHuYfpM+iNGx1p\nUim5EreOd1WsnnOM5/fvczJznDxciY2TfiIbzjrFwbDchkb3L4pJeXNNFkCspJoU\neM31287FKyrrN1zcC1Q8j4jErLTkptJtGtu1SrcElyYqgIuhEe5JyWXeDORj2FTN\nMzsX1NLmQareORGSNI9uYCK3fOdQWx5dpj94/wW5VF2luniWIP512DcQQjQF0dju\nLr6uDtZZAgMBAAECggEAMeReWcoxMhoTVhrajZt6CyBBIbYLJwbckDeythtrGT0h\nrfiKjfPP+UiDzuGZnXTe9PCQ4nSYkM0EPTkZFN7aV3ykx1mFmwEMFroZ+itxCXud\noQNSE1yTqIMxpoz6e9HfBIQetKQ440ljwtbhXqAhetd3Lg+5y0bUiYA3M9JXfdCV\nyWrhl6lqznpKBy6vGhhIE6EfIOXy4vsked7mqNOsLSucBUKott5BF6npb3npmRE9\nffpKZDehPvGt5ihjIUManGSAn9VmQmu/F6AMAQzOH8ADwBuQwAZfRlBL0JKvAsuR\nB/HR80RDLjRlz/2ICvxsQpxC5nz4LTBEeCufpsyKswKBgQDa933O/DqNikw/pPas\nRDLJ8epgFfzTMm1g27JIHTeJoooSnAUjdr7thi0CJL/SQrm3ImCLzEIsoD9CKd/X\nTYNnaFLn7IyZZOfy9lpSBq6qqvLnsIMZST5yGQJD75mitn3C0Y+Hff7J/oCKS+fJ\nXA3zv1JxNeOwKA4oYG0Kx56QqwKBgQDE4h8mesFZSXJI0dGW++gYZZ/SoUEup0Yf\nbQIVivrJq2jn78GzNVwDK1iQRVDUpNQ2kx78QOVKuOXF2e1PYfU5UL1rK6o7bVjn\nRryzO5RubsP8vA4Ll76mO+SaRLhdLXI4qRPClh2cBI/HgYR4/dPYMgyjfZBnWIOt\nETTd1BHdCwKBgH1+5RsRUpm2jrbXXA0lVRqKzPJfB7UfrLKbl9Ve8WqvvoSl6QgH\nUawef4M//rSKS5hbWowk+DRNb5QDHehu44YLs6B64aY0v/9vFBr4+3iTW35QmwKO\nCP0pujOnih1IjFFw+9sC6lloxND+agzs9o4htCVwZluayWp4wWYxPH7bAoGAFdfc\niuFdqDFM26VjsnOaSXKk67J2T93BGuV2MLutnUhGKE1iWSaXYcaiWcdG84CiBrgF\n3Qi6J7Mh0vSdrov4r/Y0PbqndVZpYadoch4vFp11YwneKQ0Z2smUUEVFixjqrjyb\n85/CAzhCV2kYMHBA26CZ5F2e8shQO5hIHEBWBwcCgYBnB5rCkhwRpfesV6ixVw2/\n5voEE9x5KrkC8JTGU6G74bw+S2qAWlSoHnmQgrLmeL5uhQomPTV+vLqA5neX7HRq\nBZ9EUpH8VIDLXaF7EhdBmI4bXGdcBurNCslpzagw8e4/8BVdUe8MqTnyUMSa+k5N\nIi4Vyi4mh2goBJruh/8l8g==\n-----END PRIVATE KEY-----\n",
+  "client_email": "pythonplayground@global-baton-794.iam.gserviceaccount.com",
+  "client_id": "101058408339540452608",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pythonplayground%40global-baton-794.iam.gserviceaccount.com"
+}
