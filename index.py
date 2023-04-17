@@ -16,6 +16,24 @@ gc = gspread.service_account("secure.json")
 
 sh = gc.open("WorkDataBook")
 ws = sh.worksheet('System')
+# ws.delete_rows(7)
+
+st.write("Multi-row search results")
+res = ws.findall('68404')
+for rec in res:
+    st.write(ws.row_values(rec.row))
+    
+# ws.delete_rows(7)
+st.write("Multi-row search results")
+res = ws.findall('68404')
+for rec in res:
+    st.write(ws.row_values(rec.row))
+    
+df = (ws.get_all_values())
+st.write('Total data rows that exist',(len(df)-1))
+for rec in df:
+    if rec[1] != 'Name':
+        st.write(rec)
 
 page_nav = st.sidebar.radio("Select Page",["Add User","Edit User", "Firebase","About Us", "Images"])
 
