@@ -9,6 +9,13 @@ st.set_page_config(page_title="Nifty Stuff",
                     page_icon=":bar_chart:",
                     layout="wide")
 
+def makeKey():
+    return('KEY'+str(time.time()).split('.')[1])
+
+gc = gspread.service_account("secure.json")
+
+sh = gc.open("WorkDataBook")
+ws = sh.worksheet('System')
 
 page_nav = st.sidebar.radio("Select Page",["Add User","Edit User", "Firebase","About Us", "Images"])
 
