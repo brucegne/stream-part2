@@ -18,13 +18,13 @@ sh = gc.open("WorkDataBook")
 ws = sh.worksheet('System')
 # ws.delete_rows(7)
 
-st.write("Multi-row search results")
-res = ws.findall('68404')
+st.write("Multi-row search results - 68516")
+res = ws.findall('68516')
 for rec in res:
     st.write(ws.row_values(rec.row))
     
 # ws.delete_rows(7)
-st.write("Multi-row search results")
+st.write("Multi-row search results - 68404")
 res = ws.findall('68404')
 for rec in res:
     st.write(ws.row_values(rec.row))
