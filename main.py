@@ -5,7 +5,7 @@ import numpy as np
 import requests, json
 from time import sleep
 
-st.set_page_config(page_title="Nifty Stuff",
+st.set_page_config(page_title="Heartland Advantage - Home",
                     page_icon=":bar_chart:",
                     layout="wide")
 

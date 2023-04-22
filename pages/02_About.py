@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="Nifty Stuff",
+st.set_page_config(page_title="Heartland Advantage Form Demo",
                     page_icon=":house:",
                     layout="wide")
 
