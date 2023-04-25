@@ -16,7 +16,17 @@ if image_file is not None:
     st.write(file_details)
     save_uploadedfile(image_file)
 
+path = "./static"
+img_list = []
+obj = os.scandir(path)
+for entry in obj:
+    img_list.append(entry.name)
+
+img = st.sidebar.selectbox("Choose Image", img_list)
+if img:
+    st.write(img)
+
 st.markdown(
-        '<img src="./app/static/gordon43.jpg" height="333" style="border: 5px solid orange">',
+        f'<img src="./app/static/{img}" height="333" style="border: 5px solid orange">',
         unsafe_allow_html=True,
     )
