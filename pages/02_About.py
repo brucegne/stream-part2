@@ -1,4 +1,22 @@
-import streamlit as st
+import gspread
+import pandas as pd
+import numpy as np
+import requests, json
+from time import sleep
+
+st.set_page_config(page_title="Heartland Advantage - Home",
+                    page_icon=":bar_chart:",
+                    layout="wide")
+
+
+
+def makeKey():
+    return('KEY'+str(time.time()).split('.')[1])
+
+gc = gspread.service_account("secure.json")
+
+sh = gc.open("WorkDataBook")
+ws = sh.worksheet('System')
 
 st.set_page_config(page_title="Heartland Advantage Form Demo",
                     page_icon=":house:",
@@ -22,4 +40,6 @@ with ccol:
     if usr_submit:
         lcol.write("{0}, {1} is already to go".format(user_first, user_last))
         lcol.write(user_food)
+        st.snow()
+        st.session_state['blowhard'] = 'I did this.'
         rcol.success(user_bio)
