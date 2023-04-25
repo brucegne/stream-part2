@@ -1,14 +1,8 @@
+import streamlit as st
 import gspread
 import pandas as pd
 import numpy as np
-import requests, json
-from time import sleep
-
-st.set_page_config(page_title="Heartland Advantage - Home",
-                    page_icon=":bar_chart:",
-                    layout="wide")
-
-
+import requests, json, time
 
 def makeKey():
     return('KEY'+str(time.time()).split('.')[1])
@@ -42,4 +36,7 @@ with ccol:
         lcol.write(user_food)
         st.snow()
         st.session_state['blowhard'] = 'I did this.'
+        kv = makeKey()
+        new_row=[kv, user_first, user_last, user_phone, user_address, user_bio]
+        ws.append_row(new_row)
         rcol.success(user_bio)
