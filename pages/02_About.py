@@ -16,6 +16,9 @@ st.set_page_config(page_title="Heartland Advantage Form Demo",
                     page_icon=":house:",
                     layout="wide")
 
+work_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users.json'
+user_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users/%s.json'
+
 st.write(st.session_state)
 
 st.header("About Us")
@@ -32,6 +35,12 @@ with ccol:
     user_regdate = form1.date_input("Enter your DOB",key="dob")
     usr_submit = form1.form_submit_button("Send")
     if usr_submit:
+        post_url = work_url
+        post_data = {}
+        post_data['name'] = user_first
+        post_data['email'] = user_phone
+        post_data['comments'] = user_bio
+        res = requests.post(post_url,json=post_data)
         lcol.write("{0}, {1} is already to go".format(user_first, user_last))
         lcol.write(user_food)
         st.snow()

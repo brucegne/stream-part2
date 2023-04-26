@@ -10,6 +10,8 @@ st.set_page_config(page_title="Heartland Advantage - Home",
                     layout="wide")
 
 
+work_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users.json'
+user_url = 'https://socialpancakes-d1dad.firebaseio.com/bdata/Users/%s.json'
 
 def makeKey():
     return('KEY'+str(time.time()).split('.')[1])
