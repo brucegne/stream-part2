@@ -2,6 +2,8 @@ import streamlit as st
 from google.cloud import firestore
 from google.oauth2 import service_account
 
+# [server]
+# enableStaticServing = true
 # db = firestore.Client.from_service_account_json(".streamlit/fire-key.json")
 
 key_dict = json.loads(st.secrets['textkey'])
