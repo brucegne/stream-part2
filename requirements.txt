@@ -4,3 +4,4 @@ numpy
 gspread
 requests
 pillow
+google-cloud-firestore
