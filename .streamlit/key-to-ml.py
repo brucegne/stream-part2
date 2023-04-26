@@ -1,8 +1,8 @@
-import toml
+iimport toml
 
-output_file = "./secrets.toml"
+output_file = ".streamlit/secrets.toml"
 
-with open("streamlit-firestore.json") as json_file:
+with open("fire-key.json") as json_file:
     json_text = json_file.read()
 
 config = {"textkey": json_text}
