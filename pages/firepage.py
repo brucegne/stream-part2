@@ -34,3 +34,11 @@ for doc in posts_ref.stream():
 
 	st.subheader(f"Post: {title}")
 	st.write(f":link: [{url}]({url})")
+
+emps_ref = db.collection("employee")
+for doc in emps_ref.stream():
+	post = doc.to_dict()
+	age = post['age']
+	lname = post['lname']
+	name = post['name']
+	st.write(f"{age}, {name}, {lname}")
