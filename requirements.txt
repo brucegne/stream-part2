@@ -2,6 +2,6 @@ numpy
 gspread
 requests
 pandas==1.2.3
-streamlit==1.21.1
+streamlit
 google-auth-oauthlib==0.4.6
 google-cloud-firestore==2.3.4
