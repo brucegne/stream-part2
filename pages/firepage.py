@@ -11,6 +11,9 @@ key_dict = json.loads(st.secrets['textkey'])
 creds = service_account.Credentials.from_service_account_info(key_dict)
 db = firestore.Client(credentials=creds)
 
+st.header("Create Posts in Google Firestore")
+st.subheader("Nifty Huh !!!")
+
 # Streamlit widgets to let a user create a new post
 form = st.form(key="Form1",clear_on_submit=True)
 title = st.text_input("Post title")
