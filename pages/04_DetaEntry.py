@@ -1,33 +1,28 @@
 import streamlit as st
 from deta import Deta
+import time
 
 # Data to be written to Deta Base
-with st.form("form"):
-    name = st.text_input("Your name")
-    age = st.number_input("Your age")
-    submitted = st.form_submit_button("Store in database")
 
+hdr = st.empty()
 
-# Connect to Deta Base with your Data Key
 deta = Deta(st.secrets["data_key"])
-
-# Create a new database "example-db"
-# If you need a new database, just use another name.
 db = deta.Base("bgdata")
 
-# If the user clicked the submit button,
-# write the data from the form to the database.
-# You can store any data you want here. Just modify that dictionary below (the entries between the {}).
-if submitted:
-    db.put({"name": name, "age": age})
-
-"---"
-"Here's everything stored in the database:"
-"---"
+with st.form("form", clear_on_submit=True):
+    name = st.text_input("Your name")
+    age = st.text_input("Your age")
+    notes = st.text_area("Enter the notes for this person")
+    submitted = st.form_submit_button("Store in database")
+    if submitted:
+        db.put({"name": name, "age": age, "notes": notes})
+        hdr.success(name+" Has been added to the database")
+db_content = db.fetch().items
+st.dataframe(db_content, use_container_width = True)
+st.balloons()
+time.sleep(5)
+hdr.write("")
 # This reads all items from the database and displays them to your app.
 # db_content is a list of dictionaries. You can do everything you want with it.
-db_content = db.fetch().items
 # for rec in db_content:
 #     st.write(rec['key'], str(rec['age']), rec['name'])
-st.dataframe(db_content)
-"---"
