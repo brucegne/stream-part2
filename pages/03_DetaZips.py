@@ -5,18 +5,21 @@ import json
 # Connect to Deta Base with your Data Key
 deta = Deta("b0fhjqxu_fG4y33DEMaK8qWfMGABUSbn8cGFNxXhC")
 db = deta.Base("Zipcode")
-"---"
-"Here's everything stored in the database:"
-"---"
-county=st.text_input("Enter county")
+hdr = st.container()
+city=st.text_input("Enter city")
+county=st.text_input("Or enter county")
 state =st.text_input("Enter 2 character state")
-goLook = st.button("Get Them")
+goLook = st.button("Search")
 if goLook: 
     qryString={}
-    qryString["county?contains"] = county.title()
-    qryString["state"] = state.upper()
-    st.write(qryString)
-    # db_content = db.fetch({'county?contains': 'Johnson', 'state': 'NE'}).items
+    if city.strip() == "":
+        qryString["county?contains"] = county.title()
+    else:
+        qryString["city?contains"] = city.title()
+    if state.strip() != "":
+        qryString["state"] = state.upper()
     db_content = db.fetch(qryString).items
     st.dataframe(db_content)
-
+    hdr.write("Total locations found :"+str(len(db_content)))
+    st.markdown("<h1 style='text-align: center; color: grey;'>Big headline</h1>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: red;'>Smaller headline in black </h2>", unsafe_allow_html=True)
