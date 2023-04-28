@@ -1,23 +1,22 @@
 import streamlit as st
 from deta import Deta
+import json
 
 # Connect to Deta Base with your Data Key
 deta = Deta("b0fhjqxu_fG4y33DEMaK8qWfMGABUSbn8cGFNxXhC")
-
-# Create a new database "example-db"
-# If you need a new database, just use another name.
 db = deta.Base("Zipcode")
 "---"
 "Here's everything stored in the database:"
 "---"
-county="Johnson"
-state = "NE"
-qryString = str({"county?contains": "%s", "state": "%s"}) % (county, state)
-st.write(qryString)
-db_content = db.fetch({'county?contains': 'Johnson', 'state': 'NE'}).items
-st.dataframe(db_content)
+county=st.text_input("Enter county")
+state =st.text_input("Enter 2 character state")
+goLook = st.button("Get Them")
+if goLook: 
+    qryString={}
+    qryString["county?contains"] = county.title()
+    qryString["state"] = state.upper()
+    st.write(qryString)
+    # db_content = db.fetch({'county?contains': 'Johnson', 'state': 'NE'}).items
+    db_content = db.fetch(qryString).items
+    st.dataframe(db_content)
 
-# If the user clicked the submit button,
-# write the data from the form to the database.
-# You can store any data you want here. Just modify that dictionary below (the entries between the {}).
-# st.write(db_content)
