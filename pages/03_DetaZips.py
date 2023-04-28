@@ -20,11 +20,11 @@ if goLook:
         qryString["state"] = state.upper()
     db_content = db.fetch(qryString).items
 
-    st.dataframe(db_content)
     if len(db_content) > 0:
-        hdr.write("Total locations found :"+str(len(db_content)))
+        st.dataframe(db_content)
+        hdr.success("Total locations found :"+str(len(db_content)))
         st.markdown("<h1 style='text-align: center; color: grey;'>Big headline</h1>", unsafe_allow_html=True)
         st.markdown("<h2 style='text-align: center; color: red;'>Smaller headline in black </h2>", unsafe_allow_html=True)
-    city = ""
-    county = ""
-    state = ""
+    else:
+        hdr.info("No matches found.")
+        
