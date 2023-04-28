@@ -19,6 +19,7 @@ if goLook:
     if state.strip() != "":
         qryString["state"] = state.upper()
     db_content = db.fetch(qryString).items
+    
     st.dataframe(db_content)
     hdr.write("Total locations found :"+str(len(db_content)))
     st.markdown("<h1 style='text-align: center; color: grey;'>Big headline</h1>", unsafe_allow_html=True)
