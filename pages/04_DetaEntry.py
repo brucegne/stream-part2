@@ -7,7 +7,7 @@ import time
 hdr = st.empty()
 
 deta = Deta(st.secrets["data_key"])
-db = deta.Base("bgdata")
+db = deta.Base("bgfamily")
 
 with st.form("form", clear_on_submit=True):
     name = st.text_input("Your name")
