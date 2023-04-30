@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 from deta import Deta
 import time
 
@@ -17,8 +18,9 @@ with st.form("form", clear_on_submit=True):
     if submitted:
         db.put({"name": name, "age": age, "notes": notes})
         hdr.success(name+" Has been added to the database")
-db_content = db.fetch().items
-st.dataframe(db_content, use_container_width = True)
+detdat = db.fetch().items
+df = pd.DataFrame(detdat)
+st.dataframe(df.filter(items=['name','age', 'notes', 'basis']).sort_values(by=['name','age']))
 time.sleep(5)
 hdr.write("")
 # This reads all items from the database and displays them to your app.
