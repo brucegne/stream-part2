@@ -21,6 +21,7 @@ with st.form("form", clear_on_submit=True):
 detdat = db.fetch().items
 df = pd.DataFrame(detdat)
 st.dataframe(df.filter(items=['name','age', 'notes', 'basis']).sort_values(by=['name','age']))
+
 time.sleep(5)
 hdr.write("")
 # This reads all items from the database and displays them to your app.

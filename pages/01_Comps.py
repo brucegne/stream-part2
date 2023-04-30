@@ -1,32 +1,37 @@
 import streamlit as st
 import streamlit.components.v1 as components
 import os, json, time
+from deta import Deta, Drive
 from PIL import Image
 
-st.write(st.session_state)
+project = Deta(st.secrets["data_key"])
+drive_name = 'PicCollection'
+drive = project.Drive(drive_name)
 
-def save_uploadedfile(uploadedfile):
-     with open(os.path.join("static",uploadedfile.name),"wb") as f:
-         f.write(uploadedfile.getbuffer())
-     return st.success("Saved File:{} to /static".format(uploadedfile.name))
+topEnd = st.empty()
 
-image_file = st.file_uploader("Upload An Image",type=['png','jpeg','jpg'])
-if image_file is not None:
-    file_details = {"FileName":image_file.name,"FileType":image_file.type}
-    st.write(file_details)
-    save_uploadedfile(image_file)
+picList = drive.list()
+photoList = []
+for rec in picList['names']:
+    photoList.append(rec)
+selPhoto = st.selectbox("Choose Photo", photoList)
+if selPhoto:
+    img = drive.get(selPhoto)
+    pic = img.read()
+    topEnd.image(pic)
+    img.close()
 
-path = "./static"
-img_list = []
-obj = os.scandir(path)
-for entry in obj:
-    img_list.append(entry.name)
+# Initialize a streamlit file uploader widget.
+uploaded_file = st.file_uploader("Choose a file")
 
-img = st.sidebar.selectbox("Choose Image", img_list)
-if img:
-    st.write(img)
+# If user attempts to upload a file.
+if uploaded_file is not None:
+    bytes_data = uploaded_file.getvalue()
 
-st.markdown(
-        f'<img src="./app/static/{img}" height="333" style="border: 5px solid orange">',
-        unsafe_allow_html=True,
-    )
+    # Show the image filename and image.
+#    st.write(f'filename: {uploaded_file.name}')
+#    st.image(bytes_data)
+
+    # Upload the image to deta using put with filename and data.
+    drive.put(uploaded_file.name, data=bytes_data)
+
