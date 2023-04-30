@@ -19,7 +19,6 @@ with st.form("form", clear_on_submit=True):
         hdr.success(name+" Has been added to the database")
 db_content = db.fetch().items
 st.dataframe(db_content, use_container_width = True)
-st.balloons()
 time.sleep(5)
 hdr.write("")
 # This reads all items from the database and displays them to your app.
