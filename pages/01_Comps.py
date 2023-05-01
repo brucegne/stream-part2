@@ -18,7 +18,7 @@ selPhoto = st.selectbox("Choose Photo", photoList)
 if selPhoto:
     img = drive.get(selPhoto)
     pic = img.read()
-    topEnd.image(pic)
+    topEnd.image(pic,width=150)
     img.close()
 
 # Initialize a streamlit file uploader widget.

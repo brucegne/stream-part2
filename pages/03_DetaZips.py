@@ -1,10 +1,13 @@
 import streamlit as st
+import pandas as pd
 from deta import Deta
 import json
 
 # Connect to Deta Base with your Data Key
 deta = Deta("b0fhjqxu_fG4y33DEMaK8qWfMGABUSbn8cGFNxXhC")
 db = deta.Base("Zipcode")
+st.markdown("<h1 style='text-align: center; color: grey;'>Big headline</h1>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: red;'>Smaller headline in black </h2>", unsafe_allow_html=True)
 hdr = st.container()
 city = st.text_input("Enter city")
 county = st.text_input("Or enter county")
@@ -19,12 +22,10 @@ if goLook:
     if state.strip() != "":
         qryString["state"] = state.upper()
     db_content = db.fetch(qryString).items
-
-    if len(db_content) > 0:
-        st.dataframe(db_content)
+    df = pd.DataFrame(db_content)
+    if len(df.filter(items=['city','county', 'state', 'population']).sort_values(by=['city','county']))>9:
+        st.dataframe(df.filter(items=['city','county', 'state', 'population']).sort_values(by=['city','county']))
         hdr.success("Total locations found :"+str(len(db_content)))
-        st.markdown("<h1 style='text-align: center; color: grey;'>Big headline</h1>", unsafe_allow_html=True)
-        st.markdown("<h2 style='text-align: center; color: red;'>Smaller headline in black </h2>", unsafe_allow_html=True)
     else:
         hdr.info("No matches found.")
         
