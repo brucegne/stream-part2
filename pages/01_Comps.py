@@ -11,11 +11,12 @@ drive = project.Drive(drive_name)
 topEnd = st.empty()
 
 picList = drive.list()
-photoList = []
+photoList = ['Please select']
 for rec in picList['names']:
     photoList.append(rec)
 selPhoto = st.selectbox("Choose Photo", photoList)
-if selPhoto:
+
+if selPhoto and "select" not in selPhoto:
     img = drive.get(selPhoto)
     pic = img.read()
     topEnd.image(pic,width=150)
